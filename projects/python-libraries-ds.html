@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top Python Libraries for Data Science · Khondokar Mustafa</title>
+    <meta name="description" content="Case study by Khondokar Mustafa — Data Analyst." />
+    <meta name="theme-color" content="#0A0E1A" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Top Python Libraries for Data Science · Khondokar Mustafa" />
+    <meta property="og:locale" content="en_AU" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Top Python Libraries for Data Science" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme') || 'dark';
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <nav class="container navbar__inner" aria-label="Primary">
+        <a href="../index.html#hero" class="navbar__brand">
+          <span class="navbar__mark">KM</span>
+          <span class="navbar__brand-name">Mustafa</span>
+        </a>
+
+        <ul class="navbar__links">
+          <li><a href="../index.html#about" class="navbar__link">About</a></li>
+          <li><a href="../index.html#skills" class="navbar__link">Skills</a></li>
+          <li><a href="../index.html#projects" class="navbar__link">Projects</a></li>
+          <li><a href="../index.html#experience" class="navbar__link">Experience</a></li>
+          <li><a href="../index.html#certifications" class="navbar__link">Certifications</a></li>
+          <li><a href="../index.html#contact" class="navbar__link">Contact</a></li>
+        </ul>
+
+        <div class="navbar__actions">
+          <a
+            href="../assets/cv/Khondokar_Mustafa_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--secondary btn--sm navbar__cv-btn"
+          >
+            <span data-icon="download"></span>
+            <span>CV</span>
+          </a>
+          <button type="button" class="icon-btn" data-toggle-theme aria-label="Toggle theme">
+            <span data-theme-icon></span>
+          </button>
+          <button type="button" class="icon-btn mobile-menu-toggle" aria-label="Open menu">
+            <span data-icon="menu"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Mobile drawer -->
+    <div class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile menu">
+      <div class="mobile-drawer__backdrop" aria-hidden="true"></div>
+      <div class="mobile-drawer__panel">
+        <div class="mobile-drawer__header">
+          <span class="mobile-drawer__header-title">Menu</span>
+          <button type="button" class="icon-btn" data-close-drawer aria-label="Close menu">
+            <span data-icon="close"></span>
+          </button>
+        </div>
+        <nav class="mobile-drawer__nav">
+          <ul>
+            <li><a href="../index.html#about" class="mobile-drawer__link"><span>About</span><span class="mobile-drawer__link-index">01</span></a></li>
+            <li><a href="../index.html#skills" class="mobile-drawer__link"><span>Skills</span><span class="mobile-drawer__link-index">02</span></a></li>
+            <li><a href="../index.html#projects" class="mobile-drawer__link"><span>Projects</span><span class="mobile-drawer__link-index">03</span></a></li>
+            <li><a href="../index.html#experience" class="mobile-drawer__link"><span>Experience</span><span class="mobile-drawer__link-index">04</span></a></li>
+            <li><a href="../index.html#certifications" class="mobile-drawer__link"><span>Certifications</span><span class="mobile-drawer__link-index">05</span></a></li>
+            <li><a href="../index.html#contact" class="mobile-drawer__link"><span>Contact</span><span class="mobile-drawer__link-index">06</span></a></li>
+          </ul>
+        </nav>
+        <div class="mobile-drawer__footer">
+          <a href="../assets/cv/Khondokar_Mustafa_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="width: 100%;">
+            <span data-icon="download"></span>
+            <span>Download CV</span>
+          </a>
+          <div class="mobile-drawer__socials">
+            <a href="https://linkedin.com/in/khondokarmustafa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="icon-btn"><span data-icon="linkedin"></span></a>
+            <a href="https://github.com/khondokarmustafa" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="icon-btn"><span data-icon="github"></span></a>
+            <a href="mailto:khondokarmustafa0@gmail.com" aria-label="Email" class="icon-btn"><span data-icon="mail"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN: content rendered by JS from PROJECTS[data-case-study] -->
+    <main id="main" data-case-study="python-libraries-ds"></main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div class="footer__brand-block">
+          <a href="../index.html#hero" class="navbar__brand">
+            <span class="navbar__mark">KM</span>
+            <span>Khondokar Mustafa</span>
+          </a>
+          <p class="footer__tagline">
+            I turn complex datasets into decision-ready insights — through
+            dashboards, automation, and visual storytelling.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer__heading">Sitemap</h3>
+          <ul class="footer__list">
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#skills">Skills</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#experience">Experience</a></li>
+            <li><a href="../index.html#certifications">Certifications</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__heading">Get in touch</h3>
+          <ul class="footer__list">
+            <li><a href="mailto:khondokarmustafa0@gmail.com">khondokarmustafa0@gmail.com</a></li>
+            <li><a href="tel:+61451415440">+61 451 415 440</a></li>
+            <li style="color: var(--text-muted); font-size: 0.875rem;">Melbourne, VIC, Australia</li>
+          </ul>
+          <div class="footer__socials">
+            <a href="https://linkedin.com/in/khondokarmustafa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="icon-btn"><span data-icon="linkedin"></span></a>
+            <a href="https://github.com/khondokarmustafa" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="icon-btn"><span data-icon="github"></span></a>
+            <a href="mailto:khondokarmustafa0@gmail.com" aria-label="Email" class="icon-btn"><span data-icon="mail"></span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container footer__bottom">
+        <p class="footer__copy">© <span data-current-year></span> Khondokar Mustafa. Designed and built with care.</p>
+        <p class="footer__stack">HTML · CSS · Vanilla JS · Zero build</p>
+      </div>
+    </footer>
+
+    <button type="button" class="back-to-top" aria-label="Back to top">
+      <span data-icon="arrowUp"></span>
+    </button>
+
+    <script src="../assets/js/main.js" defer></script>
+  </body>
+</html>
