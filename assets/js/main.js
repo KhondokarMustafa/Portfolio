@@ -488,8 +488,15 @@ function initBackToTop() {
 // SCROLL REVEAL
 // ═════════════════════════════════════════════════════════════
 function initReveal() {
-  const els = document.querySelectorAll('.reveal:not(.is-visible)');
+  const els = Array.from(document.querySelectorAll('.reveal:not(.is-visible)'));
   if (!els.length) return;
+
+  // If IntersectionObserver isn't supported, just show everything.
+  if (!('IntersectionObserver' in window)) {
+    els.forEach((el) => el.classList.add('is-visible'));
+    return;
+  }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -497,8 +504,28 @@ function initReveal() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
-  els.forEach((el) => observer.observe(el));
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  els.forEach((el) => {
+    // Reveal immediately if the element is already within (or above) the
+    // viewport at load time — the observer sometimes doesn't emit an initial
+    // entry for elements injected in the same tick, which would leave them
+    // stuck at opacity:0. This guarantees above-the-fold content shows.
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add('is-visible');
+    } else {
+      observer.observe(el);
+    }
+  });
+
+  // Failsafe: whatever hasn't been revealed within 1.2s gets revealed anyway,
+  // so content can never be permanently invisible due to an observer hiccup.
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.is-visible)').forEach((el) => {
+      el.classList.add('is-visible');
+    });
+  }, 1200);
 }
 
 // ═════════════════════════════════════════════════════════════
@@ -848,37 +875,60 @@ function wireCvLinks() {
 // ═════════════════════════════════════════════════════════════
 // BOOTSTRAP
 // ═════════════════════════════════════════════════════════════
-document.addEventListener('DOMContentLoaded', () => {
-  initTheme();
-  injectIcons();
-  updateThemeIcons();
-  wireCvLinks();
+// Run a function, but never let its failure halt the rest of bootstrap.
+function safe(label, fn) {
+  try {
+    fn();
+  } catch (e) {
+    console.error('[portfolio] ' + label + ' failed:', e);
+  }
+}
 
-  document.querySelectorAll('[data-toggle-theme]').forEach((btn) => {
-    btn.addEventListener('click', toggleTheme);
+function bootstrap() {
+  safe('initTheme', initTheme);
+  safe('injectIcons', injectIcons);
+  safe('updateThemeIcons', updateThemeIcons);
+  safe('wireCvLinks', wireCvLinks);
+
+  safe('themeToggle', () => {
+    document.querySelectorAll('[data-toggle-theme]').forEach((btn) => {
+      btn.addEventListener('click', toggleTheme);
+    });
   });
 
-  initMobileMenu();
-  initNavbar();
-  initScrollSpy();
-  initScrollProgress();
-  initBackToTop();
-  initCopyEmail();
+  safe('initMobileMenu', initMobileMenu);
+  safe('initNavbar', initNavbar);
+  safe('initScrollSpy', initScrollSpy);
+  safe('initScrollProgress', initScrollProgress);
+  safe('initBackToTop', initBackToTop);
+  safe('initCopyEmail', initCopyEmail);
 
-  // Render dynamic sections (home page has these; case pages have data-case-study)
-  renderFeaturedProjects();
-  renderInfographics();
-  renderCaseStudy();
+  // Render dynamic sections FIRST and independently, so a failure in one
+  // never prevents the others (or the reveal pass) from running.
+  safe('renderFeaturedProjects', renderFeaturedProjects);
+  safe('renderInfographics', renderInfographics);
+  safe('renderCaseStudy', renderCaseStudy);
 
-  // Initialise PDF.js AFTER content is rendered so the observers can see the hosts
-  initPdfJs();
-  initAllPdfPreviews();
-  bindPreviewResize();
+  // Reveal injected content immediately after render. Done before PDF.js so
+  // cards are visible even if PDF rendering is slow or the CDN is blocked.
+  safe('initReveal', initReveal);
 
-  // Kick reveal AFTER rendering so injected elements are observed
-  initReveal();
+  // PDF previews are progressive enhancement — they run last and their
+  // failure only affects the preview image, not the cards themselves.
+  safe('initPdfJs', initPdfJs);
+  safe('initAllPdfPreviews', initAllPdfPreviews);
+  safe('bindPreviewResize', bindPreviewResize);
 
-  // Footer year
-  const yearEl = document.querySelector('[data-current-year]');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-});
+  safe('footerYear', () => {
+    const yearEl = document.querySelector('[data-current-year]');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  });
+}
+
+// Run now if DOM is already parsed (defer scripts execute before
+// DOMContentLoaded, but this guards every load order), else wait for it.
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootstrap);
+} else {
+  bootstrap();
+}
