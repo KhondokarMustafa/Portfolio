@@ -21,21 +21,15 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Khondokar Mustafa — Data Analyst" />
-    <meta
-      property="og:description"
-      content="Power BI, SQL, Python. Transforming complex datasets into decision-ready insights."
-    />
+    <meta property="og:description" content="Power BI, SQL, Python. Transforming complex datasets into decision-ready insights." />
     <meta property="og:locale" content="en_AU" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Khondokar Mustafa — Data Analyst" />
-    <meta
-      name="twitter:description"
-      content="Power BI, SQL, Python. Decision-ready insights."
-    />
+    <meta name="twitter:description" content="Power BI, SQL, Python. Decision-ready insights." />
 
-    <!-- Preconnect for fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -43,7 +37,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
 
     <!-- Anti-flash: set theme before render -->
     <script>
@@ -54,6 +48,9 @@
         } catch (e) {}
       })();
     </script>
+
+    <!-- PDF.js — loaded from cdnjs (reliable CDN, no build required) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
 
     <!-- JSON-LD structured data -->
     <script type="application/ld+json">
@@ -70,27 +67,17 @@
           "@type": "PostalAddress",
           "addressLocality": "Melbourne",
           "addressRegion": "VIC",
+          "postalCode": "3073",
           "addressCountry": "AU"
         },
-        "sameAs": [
-          "https://linkedin.com/in/khondokarmustafa",
-          "https://github.com/khondokarmustafa"
-        ],
+        "sameAs": ["https://linkedin.com/in/khondokarmustafa"],
         "knowsAbout": [
           "Power BI", "SQL", "Python", "Alteryx", "Snowflake",
-          "Data Visualization", "ETL", "Data Modeling", "Figma"
+          "Data Visualization", "ETL", "Data Modeling", "Figma", "DAX"
         ],
         "alumniOf": [
-          {
-            "@type": "CollegeOrUniversity",
-            "name": "La Trobe University",
-            "location": "Melbourne, Australia"
-          },
-          {
-            "@type": "CollegeOrUniversity",
-            "name": "BRAC University",
-            "location": "Dhaka, Bangladesh"
-          }
+          { "@type": "CollegeOrUniversity", "name": "La Trobe University", "location": "Melbourne, Australia" },
+          { "@type": "CollegeOrUniversity", "name": "BRAC University", "location": "Dhaka, Bangladesh" }
         ]
       }
     </script>
@@ -118,28 +105,14 @@
         </ul>
 
         <div class="navbar__actions">
-          <a
-            href="assets/cv/Khondokar_Mustafa_CV.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn--secondary btn--sm navbar__cv-btn"
-          >
+          <a href="#" data-cv-link target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm navbar__cv-btn">
             <span data-icon="download"></span>
             <span>CV</span>
           </a>
-          <button
-            type="button"
-            class="icon-btn"
-            data-toggle-theme
-            aria-label="Toggle theme"
-          >
+          <button type="button" class="icon-btn" data-toggle-theme aria-label="Toggle theme">
             <span data-theme-icon></span>
           </button>
-          <button
-            type="button"
-            class="icon-btn mobile-menu-toggle"
-            aria-label="Open menu"
-          >
+          <button type="button" class="icon-btn mobile-menu-toggle" aria-label="Open menu">
             <span data-icon="menu"></span>
           </button>
         </div>
@@ -167,13 +140,12 @@
           </ul>
         </nav>
         <div class="mobile-drawer__footer">
-          <a href="assets/cv/Khondokar_Mustafa_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="width: 100%;">
+          <a href="#" data-cv-link target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="width: 100%;">
             <span data-icon="download"></span>
             <span>Download CV</span>
           </a>
           <div class="mobile-drawer__socials">
             <a href="https://linkedin.com/in/khondokarmustafa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="icon-btn"><span data-icon="linkedin"></span></a>
-            <a href="https://github.com/khondokarmustafa" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="icon-btn"><span data-icon="github"></span></a>
             <a href="mailto:khondokarmustafa0@gmail.com" aria-label="Email" class="icon-btn"><span data-icon="mail"></span></a>
           </div>
         </div>
@@ -224,12 +196,7 @@
                   <span>View projects</span>
                   <span data-icon="arrowDown"></span>
                 </a>
-                <a
-                  href="assets/cv/Khondokar_Mustafa_CV.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn--secondary btn--lg"
-                >
+                <a href="#" data-cv-link target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--lg">
                   <span data-icon="download"></span>
                   <span>Download CV</span>
                 </a>
@@ -249,8 +216,8 @@
                     <dd class="metric__label">Years analytics experience</dd>
                   </div>
                   <div>
-                    <dt class="metric__value">10+</dt>
-                    <dd class="metric__label">Power BI dashboards delivered</dd>
+                    <dt class="metric__value">7</dt>
+                    <dd class="metric__label">Portfolio projects delivered</dd>
                   </div>
                   <div>
                     <dt class="metric__value">7</dt>
@@ -263,9 +230,8 @@
                 </dl>
 
                 <p class="hero__aside-note">
-                  Currently completing a
-                  <em>Master of Data Science</em> at La Trobe University while
-                  supporting Orka Advisory's ESG team.
+                  Currently completing a <em>Master of Data Science</em> at La Trobe
+                  University while supporting Orka Advisory's ESG team.
                 </p>
               </div>
             </aside>
@@ -309,10 +275,9 @@
             <div class="about__bio">
               <p class="reveal">
                 I'm a Data Analyst with 2+ years of experience designing
-                end-to-end analytics solutions across healthcare, telecom,
-                finance, and ESG domains. My work spans the full stack — from
-                SQL-driven data modeling and Alteryx ETL automation to Power BI
-                dashboards and Figma-crafted data narratives.
+                end-to-end analytics solutions — spanning SQL-driven data
+                modeling, Alteryx ETL automation, Power BI dashboards, and
+                Figma-crafted data narratives.
               </p>
               <p class="reveal reveal-delay-1">
                 At DataCrunch in Bangladesh, I was promoted to Senior Data
@@ -338,9 +303,7 @@
                     <div class="about__edu-item-inner">
                       <div>
                         <p class="about__edu-degree">Master of Data Science</p>
-                        <p class="about__edu-inst">
-                          La Trobe University · Melbourne, Australia
-                        </p>
+                        <p class="about__edu-inst">La Trobe University · Melbourne, Australia</p>
                       </div>
                       <span class="about__edu-period">Expected 2026</span>
                     </div>
@@ -348,12 +311,8 @@
                   <li class="about__edu-item">
                     <div class="about__edu-item-inner">
                       <div>
-                        <p class="about__edu-degree">
-                          Bachelor of Science in Computer Science
-                        </p>
-                        <p class="about__edu-inst">
-                          BRAC University · Dhaka, Bangladesh
-                        </p>
+                        <p class="about__edu-degree">Bachelor of Science in Computer Science</p>
+                        <p class="about__edu-inst">BRAC University · Dhaka, Bangladesh</p>
                         <p class="about__edu-detail">CGPA: 3.73 / 4.00</p>
                       </div>
                       <span class="about__edu-period">2024</span>
@@ -375,9 +334,9 @@
               A full-stack analytics toolkit.
             </h2>
             <p class="section-heading__desc">
-              Five capability areas covering everything from raw ingest to
-              client-ready story. Built up through 2+ years of client work,
-              formal certifications, and continuous study.
+              Five capability areas spanning raw ingest to client-ready story.
+              Built through 2+ years of client work, formal certifications, and
+              continuous study.
             </p>
           </div>
 
@@ -400,61 +359,19 @@
             <article class="skill-card reveal">
               <p class="skill-card__category">Visualization / BI</p>
               <h3 class="skill-card__label">Visualization &amp; BI</h3>
-              <p class="skill-card__desc">
-                Designing interactive dashboards and reports that drive
-                cross-functional decisions.
-              </p>
+              <p class="skill-card__desc">Interactive dashboards and reports that drive cross-functional decisions.</p>
               <ul class="skill-card__list">
                 <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">Power BI</p>
-                    <p class="skill-card__years">2+ yrs</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                  </div>
+                  <div><p class="skill-card__name">Power BI</p><p class="skill-card__years">2+ yrs</p></div>
+                  <div class="skill-card__dots"><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span></div>
                 </li>
                 <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">Figma</p>
-                    <p class="skill-card__years">3+ yrs</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                  </div>
+                  <div><p class="skill-card__name">Figma</p></div>
+                  <div class="skill-card__dots"><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span></div>
                 </li>
                 <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">Tableau</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot"></span>
-                    <span class="skill-card__dot"></span>
-                  </div>
-                </li>
-                <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">Excel (Advanced)</p>
-                    <p class="skill-card__years">4+ yrs</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                  </div>
+                  <div><p class="skill-card__name">Excel (Advanced)</p></div>
+                  <div class="skill-card__dots"><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span></div>
                 </li>
               </ul>
             </article>
@@ -463,120 +380,40 @@
             <article class="skill-card reveal reveal-delay-1">
               <p class="skill-card__category">Languages / Querying</p>
               <h3 class="skill-card__label">Languages &amp; Querying</h3>
-              <p class="skill-card__desc">
-                Querying, transforming, and analyzing large datasets at scale.
-              </p>
+              <p class="skill-card__desc">Querying, transforming, and analyzing large datasets at scale.</p>
               <ul class="skill-card__list">
                 <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">SQL</p>
-                    <p class="skill-card__years">3+ yrs</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                  </div>
+                  <div><p class="skill-card__name">SQL</p></div>
+                  <div class="skill-card__dots"><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span></div>
                 </li>
                 <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">Python</p>
-                    <p class="skill-card__years">3+ yrs</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot"></span>
-                  </div>
+                  <div><p class="skill-card__name">Python</p></div>
+                  <div class="skill-card__dots"><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot"></span></div>
                 </li>
                 <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">Pandas / NumPy</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot"></span>
-                  </div>
-                </li>
-                <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">DAX</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot"></span>
-                  </div>
+                  <div><p class="skill-card__name">Pandas / NumPy</p></div>
+                  <div class="skill-card__dots"><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot"></span></div>
                 </li>
               </ul>
             </article>
 
             <!-- Data Engineering & ETL -->
             <article class="skill-card reveal reveal-delay-2">
-              <p class="skill-card__category">Data engineering / ETL</p>
+              <p class="skill-card__category">Data Engineering / ETL</p>
               <h3 class="skill-card__label">Data Engineering &amp; ETL</h3>
-              <p class="skill-card__desc">
-                Building automated pipelines that turn raw inputs into trusted,
-                analysis-ready data.
-              </p>
+              <p class="skill-card__desc">Automated pipelines turning raw inputs into trusted, analysis-ready data.</p>
               <ul class="skill-card__list">
                 <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">Alteryx</p>
-                    <p class="skill-card__years">2+ yrs</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                  </div>
+                  <div><p class="skill-card__name">Alteryx</p><p class="skill-card__years">Advanced cert.</p></div>
+                  <div class="skill-card__dots"><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span></div>
                 </li>
                 <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">Power Query</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                  </div>
+                  <div><p class="skill-card__name">Power Query / DAX</p></div>
+                  <div class="skill-card__dots"><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot"></span></div>
                 </li>
                 <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">Data Modeling</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot"></span>
-                  </div>
-                </li>
-                <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">ETL Workflows</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                  </div>
+                  <div><p class="skill-card__name">Data Modeling</p></div>
+                  <div class="skill-card__dots"><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot"></span></div>
                 </li>
               </ul>
             </article>
@@ -585,46 +422,19 @@
             <article class="skill-card reveal reveal-delay-3">
               <p class="skill-card__category">Cloud / Warehousing</p>
               <h3 class="skill-card__label">Cloud &amp; Warehousing</h3>
-              <p class="skill-card__desc">
-                Storing, sharing, and serving analytics workloads on modern
-                cloud platforms.
-              </p>
+              <p class="skill-card__desc">Storing and serving analytics workloads on modern cloud platforms.</p>
               <ul class="skill-card__list">
                 <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">Snowflake</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot"></span>
-                  </div>
+                  <div><p class="skill-card__name">Snowflake</p><p class="skill-card__years">3 certs</p></div>
+                  <div class="skill-card__dots"><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot"></span></div>
                 </li>
                 <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">Data Warehousing</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot"></span>
-                  </div>
+                  <div><p class="skill-card__name">Data Warehousing</p></div>
+                  <div class="skill-card__dots"><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot"></span></div>
                 </li>
                 <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">Data Sharing</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot"></span>
-                  </div>
+                  <div><p class="skill-card__name">Data Sharing</p></div>
+                  <div class="skill-card__dots"><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot"></span></div>
                 </li>
               </ul>
             </article>
@@ -633,58 +443,19 @@
             <article class="skill-card reveal reveal-delay-3">
               <p class="skill-card__category">Design / Storytelling</p>
               <h3 class="skill-card__label">Design &amp; Storytelling</h3>
-              <p class="skill-card__desc">
-                Bridging analysis and audience — turning numbers into
-                narratives that land.
-              </p>
+              <p class="skill-card__desc">Turning numbers into narratives that land — the seam between analysis and audience.</p>
               <ul class="skill-card__list">
                 <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">Data Storytelling</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                  </div>
+                  <div><p class="skill-card__name">Data Storytelling</p></div>
+                  <div class="skill-card__dots"><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span></div>
                 </li>
                 <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">Infographic Design</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                  </div>
+                  <div><p class="skill-card__name">Infographic Design</p></div>
+                  <div class="skill-card__dots"><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span></div>
                 </li>
                 <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">Presentation Design</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                  </div>
-                </li>
-                <li class="skill-card__item">
-                  <div>
-                    <p class="skill-card__name">Brand Consistency</p>
-                  </div>
-                  <div class="skill-card__dots">
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot is-filled"></span>
-                    <span class="skill-card__dot"></span>
-                  </div>
+                  <div><p class="skill-card__name">Presentation Design</p></div>
+                  <div class="skill-card__dots"><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span><span class="skill-card__dot is-filled"></span></div>
                 </li>
               </ul>
             </article>
@@ -696,27 +467,35 @@
       <section id="projects" class="section">
         <div class="container">
           <div class="section-heading reveal">
-            <span class="eyebrow">Selected Work</span>
+            <span class="eyebrow">Featured Case Studies</span>
             <h2 class="section-heading__title text-gradient">
-              Case studies, end-to-end.
+              Analytical work, end-to-end.
             </h2>
             <p class="section-heading__desc">
-              Each project is a complete arc — problem, data, approach,
-              insight, impact. Three flagship pieces lead, with focused
-              supporting work below.
+              Three flagship projects with full case studies — problem, data,
+              approach, insight, impact. Each with the original PDF report
+              rendered inline as the visual preview.
             </p>
           </div>
 
+          <!-- Featured project cards populated by JS -->
           <div class="projects__flagship" data-projects-flagship>
             <!-- rendered by JS -->
           </div>
 
+          <!-- Infographics section -->
           <div class="projects__supporting-header reveal">
-            <h3 class="projects__supporting-title">Supporting work</h3>
-            <span class="projects__supporting-count" data-featured-count></span>
+            <div>
+              <h3 class="projects__supporting-title">Data Visualizations &amp; Infographics</h3>
+              <p class="projects__supporting-desc">
+                Editorial-grade single-page pieces — market research, education,
+                healthcare, and science. Each opens the full PDF in a new tab.
+              </p>
+            </div>
+            <span class="projects__supporting-count" data-infographics-count></span>
           </div>
 
-          <div class="projects__compact-grid" data-projects-featured>
+          <div class="infographics__grid" data-projects-infographics>
             <!-- rendered by JS -->
           </div>
         </div>
@@ -741,9 +520,7 @@
             <!-- Current: Orka Advisory -->
             <li class="timeline__item reveal">
               <div class="timeline__rail">
-                <span class="timeline__node is-current">
-                  <span data-icon="briefcase"></span>
-                </span>
+                <span class="timeline__node is-current"><span data-icon="briefcase"></span></span>
                 <span class="timeline__connector"></span>
               </div>
               <article class="timeline__card">
@@ -762,20 +539,16 @@
                 </header>
                 <ul class="timeline__responsibilities">
                   <li class="timeline__responsibility">
-                    Conduct ESG research and quantitative analysis to evaluate
-                    corporate sustainability performance.
+                    Conduct ESG research and data analysis to evaluate sustainability performance.
                   </li>
                   <li class="timeline__responsibility">
-                    Prepare and review ESG reports aligned with global
-                    frameworks (GRI, SASB, TCFD).
+                    Prepare and review ESG reports aligned with global standards (GRI, SASB, TCFD).
                   </li>
                   <li class="timeline__responsibility">
-                    Support integration of ESG factors into investment and
-                    business strategy recommendations.
+                    Support integration of ESG factors into investment and business strategies.
                   </li>
                   <li class="timeline__responsibility">
-                    Monitor ESG trends and benchmarks to surface emerging risks
-                    and improvement opportunities.
+                    Monitor ESG trends and benchmarks to identify risks and improvement opportunities.
                   </li>
                 </ul>
               </article>
@@ -784,17 +557,15 @@
             <!-- Past: DataCrunch -->
             <li class="timeline__item reveal reveal-delay-1">
               <div class="timeline__rail">
-                <span class="timeline__node">
-                  <span data-icon="briefcase"></span>
-                </span>
+                <span class="timeline__node"><span data-icon="briefcase"></span></span>
               </div>
               <article class="timeline__card">
                 <header class="timeline__header">
                   <div>
-                    <h3 class="timeline__role">Senior Data Analyst</h3>
+                    <h3 class="timeline__role">Data Analyst → Senior Data Analyst</h3>
                     <p class="timeline__company">
                       <span class="timeline__company-name">DataCrunch Ltd</span>
-                      <span class="timeline__location"> · Dhaka, Bangladesh</span>
+                      <span class="timeline__location"> · Bangladesh</span>
                     </p>
                   </div>
                   <div class="timeline__meta">
@@ -804,27 +575,25 @@
                 </header>
                 <ul class="timeline__responsibilities">
                   <li class="timeline__responsibility">
-                    Engineered automated data workflows in Alteryx that
-                    streamlined ETL across multiple client accounts and
-                    accelerated reporting cycles.
+                    Developed and automated data workflows using Alteryx,
+                    streamlining complex processes for clients.
                   </li>
                   <li class="timeline__responsibility">
-                    Designed and shipped end-to-end Power BI dashboards
-                    translating multi-source data into client-specific decision
-                    tools.
+                    Designed and built dynamic dashboards in Power BI to deliver
+                    actionable insights tailored to client needs.
                   </li>
                   <li class="timeline__responsibility">
-                    Led flagship analytics projects that anchored the company's
-                    client-facing portfolio and case-study library.
+                    Contributed to the company's portfolio by leading multiple
+                    data analytics projects, showcasing the startup's capabilities.
                   </li>
                   <li class="timeline__responsibility">
-                    Partnered with marketing and engagement as a Content
-                    Visualizer — producing data-led decks, LinkedIn posts, and
-                    visual content in Figma.
+                    Collaborated with the marketing and engagement team as a
+                    Content Visualizer, creating data-focused presentation decks,
+                    LinkedIn posts, and visual content.
                   </li>
                   <li class="timeline__responsibility">
-                    Maintained brand and storytelling consistency across all
-                    data-driven communications.
+                    Ensured branding consistency and data storytelling excellence
+                    through the use of Figma and other visualization tools.
                   </li>
                 </ul>
                 <div class="timeline__achievements">
@@ -834,13 +603,13 @@
                   </div>
                   <ul>
                     <li class="timeline__achievement">
-                      Promoted from Data Analyst to Senior Data Analyst within
-                      12 months — recognized for delivery, ownership, and
-                      initiative in a fast-paced startup.
+                      Earned promotion to Senior Data Analyst within one year —
+                      demonstrating exceptional performance and initiative in a
+                      fast-paced startup environment.
                     </li>
                     <li class="timeline__achievement">
-                      Helped expand the company's service offering and internal
-                      analytics efficiency through reusable workflow templates.
+                      Played a pivotal role in expanding the company's service
+                      offerings and internal efficiencies.
                     </li>
                   </ul>
                 </div>
@@ -859,9 +628,8 @@
               Backed by industry-recognized credentials.
             </h2>
             <p class="section-heading__desc">
-              Continuous learning across analytics, data engineering, and cloud
-              — from foundational programs to advanced platform-specific
-              certifications.
+              Continuous learning across analytics, data engineering, and cloud —
+              from foundational programs to advanced platform-specific certifications.
             </p>
           </div>
 
@@ -869,84 +637,56 @@
             <article class="cert-card reveal">
               <div class="cert-card__badge">GC</div>
               <div class="cert-card__body">
-                <h3 class="cert-card__title">
-                  <span data-icon="award"></span>
-                  <span>Google Data Analytics Professional Certificate</span>
-                </h3>
+                <h3 class="cert-card__title"><span data-icon="award"></span><span>Google Data Analytics Professional Certificate</span></h3>
                 <p class="cert-card__issuer">Google · Coursera</p>
-                <p class="cert-card__year">Issued 2023</p>
               </div>
             </article>
 
             <article class="cert-card reveal">
               <div class="cert-card__badge">IC</div>
               <div class="cert-card__body">
-                <h3 class="cert-card__title">
-                  <span data-icon="award"></span>
-                  <span>IBM Data Engineering Professional Certificate</span>
-                </h3>
+                <h3 class="cert-card__title"><span data-icon="award"></span><span>IBM Data Engineering Professional Certificate</span></h3>
                 <p class="cert-card__issuer">IBM · Coursera</p>
-                <p class="cert-card__year">Issued 2024</p>
               </div>
             </article>
 
             <article class="cert-card reveal">
               <div class="cert-card__badge">AL</div>
               <div class="cert-card__body">
-                <h3 class="cert-card__title">
-                  <span data-icon="award"></span>
-                  <span>Alteryx Designer Advanced Certificate</span>
-                </h3>
+                <h3 class="cert-card__title"><span data-icon="award"></span><span>Alteryx Designer Advanced Certificate</span></h3>
                 <p class="cert-card__issuer">Alteryx</p>
-                <p class="cert-card__year">Issued 2024</p>
               </div>
             </article>
 
             <article class="cert-card reveal reveal-delay-1">
               <div class="cert-card__badge">UC</div>
               <div class="cert-card__body">
-                <h3 class="cert-card__title">
-                  <span data-icon="award"></span>
-                  <span>SQL for Data Science</span>
-                </h3>
+                <h3 class="cert-card__title"><span data-icon="award"></span><span>SQL for Data Science</span></h3>
                 <p class="cert-card__issuer">UC Davis · Coursera</p>
-                <p class="cert-card__year">Issued 2023</p>
               </div>
             </article>
 
             <article class="cert-card reveal reveal-delay-1">
               <div class="cert-card__badge">SN</div>
               <div class="cert-card__body">
-                <h3 class="cert-card__title">
-                  <span data-icon="award"></span>
-                  <span>Snowflake Hands-On Essentials — Data Warehouse</span>
-                </h3>
+                <h3 class="cert-card__title"><span data-icon="award"></span><span>Snowflake Hands-On Essentials — Data Warehouse</span></h3>
                 <p class="cert-card__issuer">Snowflake</p>
-                <p class="cert-card__year">Issued 2024</p>
               </div>
             </article>
 
             <article class="cert-card reveal reveal-delay-1">
               <div class="cert-card__badge">SN</div>
               <div class="cert-card__body">
-                <h3 class="cert-card__title">
-                  <span data-icon="award"></span>
-                  <span>Snowflake Hands-On Essentials — Data Sharing</span>
-                </h3>
+                <h3 class="cert-card__title"><span data-icon="award"></span><span>Snowflake Hands-On Essentials — Data Sharing</span></h3>
                 <p class="cert-card__issuer">Snowflake</p>
-                <p class="cert-card__year">Issued 2024</p>
               </div>
             </article>
 
             <article class="cert-card reveal reveal-delay-2">
               <div class="cert-card__badge">SN</div>
               <div class="cert-card__body">
-                <h3 class="cert-card__title">
-                  <span data-icon="award"></span>
-                  <span>Snowflake Hands-On Essentials — Data Applications</span>
-                </h3>
+                <h3 class="cert-card__title"><span data-icon="award"></span><span>Snowflake Hands-On Essentials — Data Applications</span></h3>
                 <p class="cert-card__issuer">Snowflake</p>
-                <p class="cert-card__year">Issued 2024</p>
               </div>
             </article>
           </div>
@@ -963,8 +703,8 @@
             </h2>
             <p class="section-heading__desc">
               Open to Data Analyst roles in Melbourne and remote opportunities
-              globally. Also happy to chat about freelance dashboards,
-              consulting, or just trade notes on Power BI.
+              globally. Happy to chat about freelance dashboards, consulting, or
+              just trade notes on Power BI.
             </p>
           </div>
 
@@ -975,31 +715,19 @@
                 <a href="mailto:khondokarmustafa0@gmail.com" class="contact__email">
                   khondokarmustafa0@gmail.com
                 </a>
-                <button
-                  type="button"
-                  class="copy-btn"
-                  data-copy-email="khondokarmustafa0@gmail.com"
-                  aria-label="Copy email"
-                >
+                <button type="button" class="copy-btn" data-copy-email="khondokarmustafa0@gmail.com" aria-label="Copy email">
                   <span data-icon="copy"></span>
                   <span class="copy-btn__label">Copy</span>
                 </button>
               </div>
 
               <div class="contact__ctas">
-                <a
-                  href="mailto:khondokarmustafa0@gmail.com?subject=Hello%20Khondokar"
-                  class="btn btn--primary"
-                >
+                <a href="mailto:khondokarmustafa0@gmail.com?subject=Hello%20Khondokar" class="btn btn--primary">
                   <span>Send an email</span>
                   <span data-icon="arrowUpRight"></span>
                 </a>
-                <a
-                  href="assets/cv/Khondokar_Mustafa_CV.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn--secondary"
-                >
+                <a href="#" data-cv-link target="_blank" rel="noopener noreferrer" class="btn btn--secondary">
+                  <span data-icon="download"></span>
                   <span>Download CV</span>
                 </a>
               </div>
@@ -1011,18 +739,19 @@
                   <span data-icon="mapPin"></span>
                   <span>Based in</span>
                 </div>
-                <p class="contact__mini-primary">Melbourne, VIC, Australia</p>
-                <p class="contact__mini-sub">
-                  Available for hybrid, on-site, or remote
-                </p>
+                <p class="contact__mini-primary">Melbourne, VIC 3073, Australia</p>
+                <p class="contact__mini-sub">Available for hybrid, on-site, or remote</p>
               </div>
 
               <div class="contact__mini">
-                <p class="contact__mini-label">Or find me on</p>
+                <div class="contact__mini-label">
+                  <span data-icon="linkedin"></span>
+                  <span>Connect</span>
+                </div>
                 <div class="contact__socials">
                   <a href="https://linkedin.com/in/khondokarmustafa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="contact__social"><span data-icon="linkedin"></span></a>
-                  <a href="https://github.com/khondokarmustafa" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="contact__social"><span data-icon="github"></span></a>
                   <a href="mailto:khondokarmustafa0@gmail.com" aria-label="Email" class="contact__social"><span data-icon="mail"></span></a>
+                  <a href="tel:+61451415440" aria-label="Phone" class="contact__social"><span data-icon="mapPin"></span></a>
                 </div>
               </div>
             </div>
@@ -1064,24 +793,18 @@
           <ul class="footer__list">
             <li><a href="mailto:khondokarmustafa0@gmail.com">khondokarmustafa0@gmail.com</a></li>
             <li><a href="tel:+61451415440">+61 451 415 440</a></li>
-            <li style="color: var(--text-muted); font-size: 0.875rem;">
-              Melbourne, VIC, Australia
-            </li>
+            <li style="color: var(--text-muted); font-size: 0.875rem;">Melbourne, VIC 3073, Australia</li>
           </ul>
           <div class="footer__socials">
             <a href="https://linkedin.com/in/khondokarmustafa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="icon-btn"><span data-icon="linkedin"></span></a>
-            <a href="https://github.com/khondokarmustafa" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="icon-btn"><span data-icon="github"></span></a>
             <a href="mailto:khondokarmustafa0@gmail.com" aria-label="Email" class="icon-btn"><span data-icon="mail"></span></a>
           </div>
         </div>
       </div>
 
       <div class="container footer__bottom">
-        <p class="footer__copy">
-          © <span data-current-year></span> Khondokar Mustafa. Designed and
-          built with care.
-        </p>
-        <p class="footer__stack">HTML · CSS · Vanilla JS · Zero build</p>
+        <p class="footer__copy">© <span data-current-year></span> Khondokar Mustafa. Designed and built with care.</p>
+        <p class="footer__stack">HTML · CSS · Vanilla JS · PDF.js · Zero build</p>
       </div>
     </footer>
 
@@ -1089,6 +812,6 @@
       <span data-icon="arrowUp"></span>
     </button>
 
-    <script src="assets/js/main.js" defer></script>
+    <script src="./assets/js/main.js" defer></script>
   </body>
 </html>
