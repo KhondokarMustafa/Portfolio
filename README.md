@@ -1,8 +1,12 @@
-# Khondokar Mustafa — Data Analyst Portfolio
+# Khondokar Jamal E Mustafa — Data Analyst Portfolio
 
 A production-ready static portfolio. No frameworks, no build step, no npm.
-All 7 project PDFs are included and rendered inline as visual previews
-via PDF.js. Deploy by pushing to a GitHub repo and enabling Pages.
+Pure HTML, CSS, and vanilla JavaScript — deployable to GitHub Pages by
+pushing these files as-is.
+
+**Privacy note:** this site intentionally does not display a phone number
+anywhere — not in the contact section, footer, metadata, or any other part
+of the page. Only email and LinkedIn are used as contact methods.
 
 ---
 
@@ -10,51 +14,41 @@ via PDF.js. Deploy by pushing to a GitHub repo and enabling Pages.
 
 ```
 portfolio/
-├── index.html                                       # Home (hero, about, skills, projects, experience, certifications, contact)
-├── .nojekyll                                        # Tells GitHub Pages to skip Jekyll
-├── README.md                                        # This file
-│
-├── projects/                                        # Case study pages (3 featured projects)
-│   ├── covid-herd-immunity.html
-│   ├── qatalyst-acquisition-deals.html
-│   └── restaurant-meal-deal-analysis.html
-│
+├── index.html                 # The entire site (single page)
+├── .nojekyll                  # Tells GitHub Pages to skip Jekyll
+├── README.md                  # This file
 └── assets/
-    ├── css/
-    │   └── style.css                                # Full design system, all components
-    ├── js/
-    │   └── main.js                                  # All interactivity + project data + PDF.js integration
-    ├── projects/                                    # Actual project PDFs — rendered as previews AND downloadable
-    │   ├── covid-herd-immunity.pdf                    (16 pages, 1.8 MB)
-    │   ├── qatalyst-acquisition-deals.pdf             (1 page)
-    │   ├── restaurant-meal-deal-analysis.pdf          (1 page)
-    │   ├── top-data-analytic-tools.pdf                (1 page)
-    │   ├── top-python-libraries.pdf                   (1 page)
-    │   ├── life-science-ai.pdf                        (1 page)
-    │   └── celestial-bodies.pdf                       (1 page)
-    └── cv/
-        └── Khondokar_Mustafa_CV.pdf                 (2 pages)
+    ├── css/style.css          # Full design system
+    ├── js/main.js             # All interactivity + project data
+    ├── cv/
+    │   └── Khondokar_Jamal_E_Mustafa_CV.pdf   ← your real resume
+    ├── img/                   # Optimized preview images (thumbnails + full)
+    │   ├── dashboard/
+    │   ├── analytical/
+    │   └── creative/
+    └── projects/               # Original source files — opened via "Open PDF" / "Open Image"
+        ├── demo-dashboard.pdf
+        ├── brics-vs-g7.pdf
+        ├── antibiotic-misuse-bangladesh.pdf
+        ├── grameenphone-vs-robi.pdf
+        ├── bangladesh-economy-2023.pdf
+        ├── qatalyst-top-deals.pdf
+        ├── top-data-analytic-tools.jpg
+        ├── top-python-libraries.png
+        ├── icc-cricket-world-cup.png
+        └── celestial-bodies.jpg
 ```
 
-Everything you need is already in this folder. Nothing to install, nothing
-to configure, no screenshots to make. **Just push and deploy.**
+Nothing to install. Nothing to configure. Push and deploy.
 
 ---
 
-## Deploy to GitHub Pages — 3 steps, ~2 minutes
+## Deploy to GitHub Pages — 3 steps
 
 ### 1. Create a GitHub repo
-
-Create a new repo on GitHub. Two common naming choices:
-- **`portfolio`** (or any name) → live at `https://<username>.github.io/portfolio/`
-- **`<username>.github.io`** → live at the cleaner `https://<username>.github.io/`
-
-Both work — the site uses relative paths, so either deploys correctly.
+Any name works — `portfolio`, or `<username>.github.io` for the cleanest URL.
 
 ### 2. Push these files
-
-From this folder in your terminal:
-
 ```bash
 git init
 git add .
@@ -65,174 +59,106 @@ git push -u origin main
 ```
 
 ### 3. Enable Pages
+**Settings → Pages → Source: Deploy from a branch → main / (root) → Save.**
 
-In your GitHub repo:
-- **Settings** → **Pages** (left sidebar)
-- **Source**: Deploy from a branch
-- **Branch**: `main` and `/ (root)`
-- **Save**
-
-GitHub builds the site in ~30–60 seconds. The live URL appears at the top of
-the Pages settings once ready. Every subsequent `git push` re-deploys the
-site automatically.
+Live in about 30–60 seconds. Every future `git push` redeploys automatically.
 
 ---
 
 ## Testing locally
 
-The simplest option: **double-click `index.html`.** It opens in your browser
-and works. PDF previews load from the same folder — no server needed.
-
-However, some browsers have stricter local-file security policies that can
-block PDF.js from fetching the PDFs. If previews don't render locally, run
-a tiny local server:
+Double-click `index.html` — it works standalone. For an environment closer
+to production:
 
 ```bash
-# Python 3 (probably already installed)
 python -m http.server 8000
 ```
-
-or with Node:
-
-```bash
-npx serve .
-```
-
-Then open `http://localhost:8000`. This exactly matches how GitHub Pages
-will serve the site.
+Then open `http://localhost:8000`.
 
 ---
 
-## What each part does
+## Content sources
 
-### Featured Case Studies (3)
+Everything on this site is sourced directly from the resume and project
+files you provided — nothing was invented:
 
-- **The Tale of COVID-19's Herd Immunity** — a 16-page research report. On
-  the case study page, 5 selected pages are rendered inline (deaths chart,
-  vaccination chart, correlation chart, state maps, variants timeline)
-  followed by a "View Full 16-Page Report" button.
-- **Qatalyst Partners — A Decade of Tech M&A** — single-page bubble chart
-  rendered as the case-study cover.
-- **Restaurant Meal Deal Analysis** — single-page operations dashboard
-  rendered as the case-study cover.
+- **Hero stats, work experience, education, and skills** — from
+  `Khondokar_Jamal_E_Mustafa_Resume.pdf`.
+- **Demo Dashboard** — rendered from `Demo_Dashboard.pdf` (Finance + HR
+  Power BI views); the stats shown (180 employees, $9M salary cost, 85%
+  training completion, etc.) are read directly off the dashboard.
+- **5 Analytical Projects** — BRICS vs. G7, Antibiotic Misuse in
+  Bangladesh, Grameenphone vs. Robi, Bangladesh Economy 2023, and Qatalyst
+  Partners' Top Deals — each rendered from its source PDF, with every
+  statistic in the card taken from the document text.
+- **4 Creative Projects** — Top Data Analytic Tools, Top Python Libraries,
+  ICC Cricket World Cup 2023, and Celestial Bodies of Our Solar System —
+  using the original infographic images you supplied.
 
-Each of these has its own HTML page under `/projects/` and shows the full
-case-study arc: overview → question → data sources → approach → insights
-→ impact.
-
-### Data Visualizations & Infographics (4)
-
-- **Top Data Analytics Tools** — tool comparison across four categories
-- **Top Python Libraries for Data Science** — 1991–2023 timeline
-- **Life Science × AI** — healthcare/AI newsletter
-- **Celestial Bodies of Our Solar System** — science infographic
-
-These render as smaller cards on the home page with a PDF preview + a
-direct "Open PDF" button. No case-study page — the PDF **is** the deliverable.
-
-### PDF.js integration
-
-PDF previews use [PDF.js 3.11.174](https://mozilla.github.io/pdf.js/)
-loaded from cdnjs. Every preview:
-
-- Renders **page 1 by default** (or a specified page for the COVID gallery)
-- Is **lazy-loaded** via `IntersectionObserver` — nothing renders until you
-  scroll near it, so the page stays fast
-- Uses **device pixel ratio** for a crisp image on retina displays
-- **Preserves the original PDF aspect ratio** — no distortion
-- Shows a **loading spinner** while rendering
-- Shows a **clean fallback icon** if rendering fails
-- **Re-renders on window resize** so it stays sharp after zoom/rotate
-
-The PDFs themselves are served as normal static files, so all "Open PDF"
-buttons open them in a new browser tab using the browser's native PDF viewer.
+Project card previews are pre-rendered, optimized JPEGs (not live PDF
+rendering), so they load instantly and never depend on a third-party
+CDN or JavaScript library. Clicking **"View Project"** opens a lightbox
+with the full-resolution image(s); **"Open PDF" / "Open Image"** opens the
+original source file in a new tab.
 
 ---
 
 ## Common tweaks
 
 ### Update your CV
-
-Replace `assets/cv/Khondokar_Mustafa_CV.pdf` with your new file — keep the
-same filename and every "Download CV" button on the site points to the fresh
-version automatically.
+Replace `assets/cv/Khondokar_Jamal_E_Mustafa_CV.pdf` with a new file of the
+same name — every "Download CV" button updates automatically.
 
 ### Add or edit a project
+All project content lives in one place: the `PROJECTS` array at the top of
+`assets/js/main.js`. Each entry has `category` (`dashboard` / `analytical`
+/ `creative`), `title`, `description`, `tools`, an optional `insight`
+string, a `thumb` (card image), a `gallery` (lightbox images), and a
+`fileUrl` (the "Open PDF/Image" link). Add a new object and it appears in
+the right tab automatically — no HTML changes needed.
 
-All project data lives in **one place**: the `FEATURED_PROJECTS` and
-`INFOGRAPHICS` arrays at the top of `assets/js/main.js`. Edit an object and
-both the home card and the case study page update.
+### Change the accent color
+Design tokens are at the top of `assets/css/style.css` under `:root`.
+`--accent` / `--accent-deep` / `--accent-soft` control the primary blue
+used throughout; `--cat-dashboard`, `--cat-analytical`, and `--cat-creative`
+control the three project-category colors.
 
-To add a new **featured** project:
-1. Drop the PDF in `assets/projects/`.
-2. Add a new object to `FEATURED_PROJECTS` in `main.js`.
-3. Copy any existing file in `projects/` (e.g. `qatalyst-acquisition-deals.html`)
-   and change the `data-case-study="..."` attribute on `<main>` to your new slug.
-
-To add a new **infographic**:
-1. Drop the PDF in `assets/projects/`.
-2. Add a new object to `INFOGRAPHICS` in `main.js`. That's it — no HTML page needed.
-
-### Change the color scheme
-
-Design tokens live at the very top of `assets/css/style.css` under `:root`
-(dark theme) and `:root[data-theme='light']` (light theme). Change
-`--accent-primary`, `--accent-secondary`, and `--accent-tertiary` to reskin
-the entire site.
-
-### Update your LinkedIn link
-
-Search `index.html` and the three files in `projects/` for
-`linkedin.com/in/khondokarmustafa` — replace with your real URL if different.
+### Update contact details
+Search `index.html` for `khondokarmustafa0@gmail.com` and
+`linkedin.com/in/khondokarmustafa` and replace as needed. No phone number
+field exists anywhere in the markup by design — if you ever want to add
+one, you'll need to add new markup deliberately; nothing needs to be
+"turned back on."
 
 ---
 
 ## Custom domain (optional)
 
-If you own a domain (e.g. `khondokarmustafa.com`):
-
-1. Create a file named `CNAME` (no extension) at the repo root, containing
-   exactly one line with your domain:
+1. Add a `CNAME` file at the repo root containing your domain, e.g.:
    ```
    khondokarmustafa.com
    ```
-
-2. In your registrar's DNS settings, add A records pointing to GitHub's IPs:
+2. Point your DNS `A` records to GitHub's IPs:
    ```
    185.199.108.153
    185.199.109.153
    185.199.110.153
    185.199.111.153
    ```
-
-3. In the repo's Pages settings, enter your domain in the Custom domain
-   field. Check **Enforce HTTPS** once the SSL certificate provisions
-   (~10 minutes).
+3. Enter the domain in **Settings → Pages → Custom domain**, then check
+   **Enforce HTTPS** once the certificate provisions (~10 minutes).
 
 ---
 
 ## Tech notes
 
-- **Zero JavaScript frameworks.** Vanilla JS in a single file.
-- **Zero CSS frameworks.** Pure CSS with custom properties.
-- **Zero build step.** No npm, no webpack, no Vite, no Tailwind CLI, no PostCSS.
-- **One CDN dependency:** PDF.js (`cdnjs.cloudflare.com`). Everything else
-  is served from your repo.
-- **All internal paths are relative.** The site works whether deployed at
-  `<user>.github.io/` (user site) or `<user>.github.io/portfolio/` (project site).
-- **Fully accessible.** Skip link, keyboard nav, focus rings, semantic HTML,
-  ARIA labels, `prefers-reduced-motion` support.
-- **SEO-ready.** Meta description, Open Graph, Twitter card, JSON-LD `Person`
-  schema, semantic headings.
-- **Fast.** Zero framework payload. Fonts preconnected. PDF previews
-  lazy-rendered on scroll.
-- **Dark/light themes** with localStorage persistence and system-preference
-  respect on first visit.
-
----
-
-## Credits
-
-Design, content, and PDFs by Khondokar Mustafa. Typography from Google Fonts
-(Inter, Space Grotesk, JetBrains Mono). Icons are inline SVG. PDF rendering
-by Mozilla PDF.js.
+- Zero JS frameworks, zero CSS frameworks, zero build step.
+- Fonts: Fraunces (headings), Inter (body), IBM Plex Mono (labels/data) —
+  loaded from Google Fonts.
+- All internal paths are relative — works at both
+  `<user>.github.io/` and `<user>.github.io/<repo>/`.
+- Fully responsive (mobile, tablet, desktop) with a slide-out mobile menu.
+- Accessible: skip link, keyboard-operable lightbox and tabs, visible
+  focus states, `prefers-reduced-motion` respected.
+- SEO: meta description, Open Graph, Twitter card, JSON-LD `Person`
+  schema (no telephone field).
